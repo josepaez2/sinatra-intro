@@ -1,0 +1,8 @@
+<h1>Welcome I'm the note from <%= @note.title %> </h1>
+
+<p>Quote: "<%= @note.content %>"</p>
+<p>Reminder: please remember to send the note to the <%= @note.quantity %> persons you mentioned would want to read it.</p>
+
+<a href="/">Back to Home</a>
+<a href="/notes/<%= @note.id %>/edit">Edit</a>
+<a href="/notes/<%= @note.id %>/delete">Delete</a>

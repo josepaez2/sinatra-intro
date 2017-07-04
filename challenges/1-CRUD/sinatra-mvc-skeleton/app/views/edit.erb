@@ -1,0 +1,23 @@
+<h1>Edit Note</h1>
+
+<% if @errors %>
+  <h3>Your note is not valid, please try again.</h3>
+  <img src="https://assets.xbox.com/xbcservicewebsupport-1706-23131-0-0-main-rolling/support/content/images/eclt_exclamation_40x40.png" alt="">
+  <ul>
+    <% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/notes/<%= @note.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+    <label for="title">Title</label><br>
+    <input type="text" name="title" placeholder="Title of the note" value="<%= @note.title %> ">
+      <label for="content">Content</label><br>
+      <input type="text" name="content" value="<%= @note.content %>">
+    <label for="quantity">Quantity</label><br>
+  <input type="number" name="quantity" value="<%= @note.quantity %>">
+  <input type="submit" value="Refresh Note" >
+</form>
+

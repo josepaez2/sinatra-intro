@@ -1,0 +1,24 @@
+<h1>New Note</h1>
+
+<% if @errors %>
+  <h3>Your note is not valid, please try again.</h3>
+  <img src="https://assets.xbox.com/xbcservicewebsupport-1706-23131-0-0-main-rolling/support/content/images/eclt_exclamation_40x40.png" alt="">
+  <ul>
+    <% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/notes" method="post">
+  <label for="title">Title</label>
+  <input type="text" name="note[title]" placeholder="Author of the note"><br>
+   <label for="content">Content</label>
+   <input type="text" name="note[content]" placeholder="Content of the note"><br>
+  <label for="quantity">** Quantity</label>
+  <input type="number" name="note[quantity]" placeholder="Persons to send to"><br>
+  <input type="submit" value="Create Note">
+</form>
+
+<p>* Fields marked with * are optional</p>
+<p>* Quantity can't be a negative number  </p>
